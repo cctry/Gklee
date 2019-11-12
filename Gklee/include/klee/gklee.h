@@ -1,7 +1,7 @@
 #ifndef __GKLEE_H__
 #define __GKLEE_H__
 
-#include <stdlib.h>
+// #include <stdlib.h>
 
 #ifdef __cplusplus
 extern "C" {
@@ -26,6 +26,10 @@ extern dim3 blockIdx;
 extern dim3 threadIdx;
 
 extern void __set_CUDAConfig(dim3, dim3, ...);
+extern void __set_device();
+extern void __clear_device();
+extern void __set_host();
+extern void __clear_host();
 
 #ifdef __cplusplus
 }

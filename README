@@ -42,6 +42,8 @@ This is a fork of the original Github version of GKLEE, https://github.com/PengP
    b. If you do have multiple gcc versions, inform CMake by calling like this, 
       assuming your latest gcc version is gcc-4.9:
       'cmake gcc=gcc-4.9 g++=g++4.9 [path to Gklee]'
+   c. CSY: modify Gklee/llvm/src/LLVM/projects/complier-rt/asan/asan_linux.cc after first make, add
+      > #include <signal.h>  
 
 5. Build Gklee: execute 'make -j [number of cores to build with]'
 

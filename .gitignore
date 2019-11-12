@@ -8,3 +8,12 @@ klee-out-*
 /lib
 /llvm
 /share
+*.make
+*.marks
+*.cmake
+*.internal
+*.includecache
+a.out
+*.log
+.vscode/
+*.in
