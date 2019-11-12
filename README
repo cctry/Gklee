@@ -33,6 +33,7 @@ This is a fork of the original Github version of GKLEE, https://github.com/PengP
     b. if you see a list that includes something like 'gcc gcc-[version number 1] 
        gcc-[version number 2]' you have multiple installations.
     (This problem will be eliminated in future versions of GKLEE)
+    d. CSY: For machine with python3 as the defualt python interpreter, the CMakeLists.txt needed to be modified at Gklee/llvm/src/LLVM/CMakeLists.txt, line 290. Change the CMake variable 'PYTHON_EXECUTABLE' into 'python2'
 ***
 
 4. Generate the Makefiles: 
