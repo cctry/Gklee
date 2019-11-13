@@ -86,6 +86,7 @@ class generic_error_category
   : public error_category
 {
   public:
+    void operator delete(void*) {};
     inline generic_error_category(void) {}
 
     inline virtual const char *name(void) const
@@ -109,6 +110,7 @@ class system_error_category
   : public error_category
 {
   public:
+    void operator delete(void*) {};
     inline system_error_category(void) {}
 
     inline virtual const char *name(void) const

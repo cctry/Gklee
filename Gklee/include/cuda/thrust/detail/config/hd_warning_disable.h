@@ -24,7 +24,7 @@
 
 #if defined(__CUDACC__)
 
-#define __thrust_hd_warning_disable__ \
+#define __thrust_hd_warning_disable__ 
 #pragma hd_warning_disable
 #else
 

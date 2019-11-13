@@ -51,7 +51,7 @@ class cuda_error_category
 {
   public:
     inline cuda_error_category(void) {}
-
+    void operator delete(void*) {};
     inline virtual const char *name(void) const
     {
       return "cuda";
