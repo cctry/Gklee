@@ -103,6 +103,7 @@ bool IntrinsicCleanerPass::runOnBasicBlock(BasicBlock &b) {
         break;
       }
 
+      case Intrinsic::umul_with_overflow:
       case Intrinsic::uadd_with_overflow: {
         IRBuilder<> builder(ii->getParent(), ii);
 
@@ -114,13 +115,18 @@ bool IntrinsicCleanerPass::runOnBasicBlock(BasicBlock &b) {
         Value *op2 = ii->getArgOperand(1);
 #endif
 
-        Value *result = builder.CreateAdd(op1, op2);
-        Value *overflow = builder.CreateICmpULT(result, op1);
+        Value *result = 0;
+        if (ii->getIntrinsicID() == Intrinsic::uadd_with_overflow)
+          result = builder.CreateAdd(op1, op2);
+        else
+          result = builder.CreateMul(op1, op2);
 
+        Value *overflow = builder.CreateICmpULT(result, op1);
+        
         Value *resultStruct =
           builder.CreateInsertValue(UndefValue::get(ii->getType()), result, 0);
         resultStruct = builder.CreateInsertValue(resultStruct, overflow, 1);
-
+        
         ii->replaceAllUsesWith(resultStruct);
         ii->removeFromParent();
         delete ii;

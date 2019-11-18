@@ -59,7 +59,7 @@ $cmdLine =~ s/$cudaFile/$newCPPFile/g;
 system("rm $tmpCUDAFile");
 
 my $CC = "clang++";
-my $CFLAGSDEVICE = "-emit-llvm -c -g -O0 -x cuda -Xclang -fgpu-device"; 
+my $CFLAGSDEVICE = "-std=c++03 -DGKLEE -emit-llvm -c -g -O0 -x cuda -Xclang -fgpu-device"; 
 
 # Before we build our bytecode, let's remove any leftover 
 # ExternAttribute.txt or KernelSet.txt files.  This should be handled
