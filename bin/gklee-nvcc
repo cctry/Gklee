@@ -40,7 +40,7 @@ if (not exists($ENV{"KLEE_HOME_DIR"})) {
 my $gkleeHomeDir = $ENV{"KLEE_HOME_DIR"};
 my $symbolCmd = "-include $gkleeHomeDir/Gklee/include/klee/klee.h -I /usr/include/x86_64-linux-gnu/c++/7/";
 my $headerCmd = "-include $gkleeHomeDir/Gklee/include/klee/gklee.h";
-my $cudaRuntime = "-D__CUDACC__ -I $gkleeHomeDir/Gklee/include/cuda -include cuda_runtime.h -include cuda_RT.h";
+my $cudaRuntime = "-D__CUDACC__ -I $gkleeHomeDir/Gklee/include/cuda -include cuda_runtime.h -include $gkleeHomeDir/Gklee/include/cuda/cudaRT.h";
 #this help cleanup a flood of warnings about our custom attributes
 my $suppFlags = "-Wno-attributes -Wno-ignored-attributes";
 
